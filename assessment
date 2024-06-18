@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.25;
+contract error_handle{
+    uint j=10;
+function require_fun(uint a) public view{
+require(a>j, "a is greater than 10");
+}
+
+function assert_fun(uint b) public view{
+assert(b<j);
+}
+
+function revert_fun(uint c) public view{
+    if(c==j){
+        revert("c is equal to 10");
+    }
+}
+}

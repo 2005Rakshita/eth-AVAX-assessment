@@ -1,18 +1,23 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.25;
 contract error_handle{
-    uint j=10;
-function require_fun(uint a) public view{
-require(a>j, "a is greater than 10");
-}
+  uint public flowerprice=100;
+  uint public owner=200;
 
-function assert_fun(uint b) public view{
-assert(b<j);
-}
-
-function revert_fun(uint c) public view{
-    if(c==j){
-        revert("c is equal to 10");
+  function cost_check() public  {
+    require(flowerprice>99,"costly flowers");
+    flowerprice-=40;
+  }
+ 
+  function buyflowers() public view  {
+    if(owner<100){
+     revert("cannot buy flowers");
     }
-}
+  }
+
+  function refund() public view {
+    assert(owner>100);
+      }
+
+  
 }

@@ -9,14 +9,18 @@ contract error_handle{
     flowerprice-=40;
   }
  
-  function buyflowers() public view  {
+  function buyflowers() public   {
     if(owner<100){
      revert("cannot buy flowers");
     }
+    else{
+        owner-=100;
+    }
   }
 
-  function refund() public view {
-    assert(owner>100);
+  function refund() public {
+    assert(owner>=100);
+     owner+=100;
       }
 
   

@@ -15,22 +15,26 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
     contract error_handle{
     uint public flowerprice=100;
     uint public owner=200;
-    
+
     function cost_check() public  {
     require(flowerprice>99,"costly flowers");
     flowerprice-=40;
     }
  
-    function buyflowers() public view  {
+    function buyflowers() public   {
     if(owner<100){
      revert("cannot buy flowers");
     }
+    else{
+        owner-=100;
     }
-    
-    function refund() public view {
-    assert(owner>100);
-      } 
+    }
+
+    function refund() public {
+    assert(owner>=100);
+     owner+=100;
       }
+    }
 
 # Author 
 
